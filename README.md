@@ -1,31 +1,27 @@
 # 251-sint-grupo24
 
-Projeto de Programação - Python 
-Bem-vindo ao meu projeto de aprendizado em Python! Este é um espaço dedicado a explorar e compartilhar os fundamentos essenciais da programação em Python, desenvolvido com o framework web Flask.
+Com certeza! Com base no seu projeto original e usando a estrutura do "Tech-learn" como modelo, aqui está uma versão refeita do seu README.md.
 
-✨Sobre o Projeto
-Olá! Sou uma estudante de Ciência da Computação no primeiro período, apaixonada por desvendar os desafios da lógica e da construção de sistemas.
+Ele foi adaptado para um projeto individual e inclui as seções detalhadas que você gostou, como tecnologias, estrutura de pastas e instruções claras.
 
-Este projeto nasceu da vontade de solidificar meus conhecimentos e, ao mesmo tempo, ajudar outros estudantes a desvendarem os segredos do Python. A plataforma foi criada para ser um guia prático e envolvente, abordando desde as estruturas básicas até conceitos mais avançados de organização de código e tratamento de dados.
+Projeto de Aprendizado em Python 🐍
+Um portal web desenvolvido para ensinar e explorar os fundamentos da programação Python de forma interativa, integrando um dicionário de termos e um assistente de IA para tirar dúvidas.
 
-🚀 Funcionalidades Principais
-O site está organizado nas seguintes seções para facilitar sua jornada de aprendizado:
+👩‍💻 Desenvolvedora
+[Alyere Targino] 
 
-📚 Fundamentos de Python: Explore os conceitos essenciais da programação, incluindo variáveis, tipos de dados e operadores.
-🧠 Estruturas de Seleção: Aprenda a controlar o fluxo do seu programa com if, elif e else.
-🔄 Estruturas de Repetição: Domine os laços for e while para executar tarefas repetitivas.
-📦 Vetores e Matrizes: Entenda como organizar e manipular conjuntos de dados.
-🧩 Funções e Procedimentos: Aprenda a criar blocos de código reutilizáveis para organizar e otimizar seus programas.
-⚠️ Tratamento de Exceção: Descubra como lidar com erros e exceções de forma elegante com try e except.
-📖 Dicionário Colaborativo:
-Visualizar Termos: Consulte uma lista de termos de programação.
-Adicionar Termo: Contribua para o dicionário adicionando novos termos e suas definições.
-🤖 Tire Dúvidas com a IA Gemini: Uma seção interativa onde você pode fazer perguntas sobre programação em Python e obter respostas inteligentes para acelerar seu aprendizado.
-🛠️ Tecnologias Utilizadas
-Backend: Python
-Framework Web: Flask
-Frontend: HTML, CSS (e possivelmente JavaScript para interatividade)
-IA: Integração com a API do Google Gemini
+🚀 Tecnologias Utilizadas
+Python 
+Flask — Framework web
+Google Gemini API — Integração com IA generativa
+HTML5 / CSS3 — Estruturação e estilização das páginas
+Bootstrap 5 — Framework para design responsivo
+CSV — Armazenamento simples para os termos do dicionário
+Lembre-se de verificar e atualizar as versões exatas que você está usando no seu projeto.
 
-
-
+📚 Funcionalidades
+Módulos de Aprendizagem: Seções dedicadas aos fundamentos de Python, como estruturas de seleção, repetição, vetores, funções e tratamento de exceções.
+Dicionário Interativo: Consulte e adicione termos de programação a um glossário colaborativo.
+Tire Dúvidas com IA: Converse diretamente com o Google Gemini para obter respostas rápidas sobre programação e solucionar dúvidas.
+Interface Intuitiva: Layout limpo e fácil de navegar, ideal para estudantes.
+Persistência Simples: Os termos do dicionário são salvos em um arquivo CSV para fácil manutenção.
