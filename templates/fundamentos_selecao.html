@@ -1,0 +1,94 @@
+{% extends 'base.html' %}
+
+{% block title %}Estruturas de Seleção - Fundamentos de Python{% endblock %}
+
+{% block heading %}Estruturas de Seleção (Condicionais) em Python{% endblock %}
+
+{% block content %}
+    <p class="lead">As estruturas de seleção, ou condicionais, permitem que seu programa tome decisões e execute diferentes blocos de código com base em condições verdadeiras ou falsas. Em Python, usamos <code>if</code>, <code>elif</code> (else if) e <code>else</code>.</p>
+
+    <hr>
+
+    <section>
+        <h3>O Conceito: 'if', 'elif', 'else'</h3>
+        <p>A ideia principal é "Se (<code>if</code>) esta condição for verdadeira, faça isso. Senão, se (<code>elif</code>) esta outra condição for verdadeira, faça aquilo. Senão (<code>else</code>), faça algo diferente."</p>
+        <ul>
+            <li><strong>'if' (se):</strong> O bloco de código sob um 'if' é executado apenas se a condição associada for verdadeira.</li>
+            <li><strong>`elif` (senão se):</strong> É usado após um 'if' (ou outro 'elif') para testar uma nova condição se a anterior foi falsa.</li>
+            <li><strong>'else' (senão):</strong> Opcional. O bloco de código sob um 'else' é executado se nenhuma das condições 'if' ou 'elif' anteriores for verdadeira.</li>
+        </ul>
+    </section>
+
+    <hr>
+
+    <section>
+        <h3>Aplicação e Exemplo de Código</h3>
+        <p>Vamos criar um pequeno programa que verifica a idade de uma pessoa e diz se ela é criança, adolescente ou adulto.</p>
+
+        <div class="card bg-light p-3 mb-4">
+            <h5 class="card-title">Exemplo: Verificação de Idade</h5>
+            <pre><code class="language-python">
+#Exemplo de Estrutura de Seleção
+
+idade = 17 # Você pode mudar este valor para testar
+
+if idade < 12:
+    print("Você é uma criança.")
+elif idade < 18: 
+    print("Você é um adolescente.")
+else: 
+    print("Você é um adulto.")
+
+# Outro exemplo: verificando se um número é par ou ímpar
+numero = 7
+if numero % 2 == 0:
+    print(f"O número {numero} é par.")
+else:
+    print(f"O número {numero} é ímpar.")
+            </code></pre>
+            <p class="card-text mt-3">Este código usa <code>if</code>, <code>elif</code> e <code>else</code> para categorizar a idade. No segundo exemplo, verifica se um número é par ou ímpar usando o operador de módulo (<code>%</code>).</p>
+        </div>
+
+        <div class="card p-3 mb-4 text-center">
+            <h5 class="card-title">Resultado da Execução do Código</h5>
+            <p>A imagem abaixo ilustra a saída do código no terminal quando a variável 'idade' é 17:</p>
+            <img src="{{ url_for('static', filename='/imagens/Estruturas de Seleção.IMG.png') }}" class="img-fluid rounded mx-auto d-block" alt="Exemplo de execução de if, elif, else">
+            
+        </div>
+    </section>
+
+    <hr>
+
+    <section>
+        <h3>Operadores Lógicos ('and', 'or', 'not')</h3>
+        <p>Você pode combinar múltiplas condições usando operadores lógicos:</p>
+        <ul>
+            <li><strong>`and` (e):</strong> Verdadeiro se TODAS as condições forem verdadeiras.</li>
+            <li><strong>`or` (ou):</strong> Verdadeiro se PELO MENOS UMA das condições for verdadeira.</li>
+            <li><strong>`not` (não):</strong> Inverte o valor de uma condição (verdadeiro se for falsa, falso se for verdadeira).</li>
+        </ul>
+        <div class="card bg-light p-3">
+            <h5 class="card-title">Exemplo: Usando 'and' e 'or'</h5>
+            <pre><code class="language-python">
+# Exemplo com operadores lógicos
+
+tem_carteira = True
+idade = 20
+
+if idade >= 18 and tem_carteira:
+    print("Pode dirigir.")
+else:
+    print("Não pode dirigir.")
+
+temperatura = 28
+chovendo = True
+
+if temperatura > 25 or chovendo:
+    print("Leve um guarda-chuva ou protetor solar.")
+else:
+    print("Clima agradável.")
+            </code></pre>
+        </div>
+    </section>
+
+{% endblock %}

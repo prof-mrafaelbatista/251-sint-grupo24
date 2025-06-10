@@ -1,0 +1,140 @@
+{% extends 'base.html' %}
+
+{% block title %}Vetores e Matrizes - Fundamentos de Python{% endblock %}
+
+{% block heading %}Vetores (Listas) e Matrizes (Listas Aninhadas) em Python{% endblock %}
+
+{% block content %}
+    <p class="lead">Em Python, o conceito de vetores e matrizes é geralmente implementado usando <strong>listas</strong>. Uma lista é uma coleção ordenada e mutável de itens. Para representar matrizes, usamos listas de listas (listas aninhadas).</p>
+
+    <hr>
+
+    <section>
+        <h3>O Conceito: Listas em Python</h3>
+        <p>Uma lista é uma estrutura de dados fundamental em Python que pode armazenar uma sequência de itens de diferentes tipos. Ela é definida usando colchetes <code>[]</code> e os itens são separados por vírgulas.</p>
+        <p>Características importantes das listas:</p>
+        <ul>
+            <li><strong>Ordenadas:</strong> Os itens têm uma ordem definida e essa ordem não muda.</li>
+            <li><strong>Mutáveis:</strong> Você pode alterar, adicionar ou remover itens após a criação da lista.</li>
+            <li><strong>Permitem Duplicatas:</strong> Uma lista pode ter itens com o mesmo valor.</li>
+            <li><strong>Indexadas:</strong> Cada item em uma lista tem um índice (posição), começando do 0.</li>
+        </ul>
+    </section>
+
+    <hr>
+
+    <section>
+        <h3>Aplicação e Exemplo de Código (Listas/Vetores)</h3>
+        <p>Vamos ver como criar e manipular listas em Python:</p>
+
+        <div class="card bg-light p-3 mb-4">
+            <h5 class="card-title">Exemplo: Operações Básicas com Listas (Vetores)</h5>
+            <pre><code class="language-python">
+# Exemplo de Lista (Vetor) em Python
+
+# Criando uma lista
+frutas = ["maçã", "banana", "cereja", "laranja"]
+print(f"Lista original de frutas: {frutas}")
+
+# Acessando elementos (índices começam do 0)
+print(f"Primeira fruta: {frutas[0]}") # Saída: maçã
+print(f"Terceira fruta: {frutas[2]}") # Saída: cereja
+
+# Alterando um elemento
+frutas[1] = "morango"
+print(f"Lista após alterar banana para morango: {frutas}")
+
+# Adicionando elementos
+frutas.append("uva") # Adiciona ao final
+print(f"Lista após adicionar uva: {frutas}")
+frutas.insert(1, "kiwi") # Adiciona na posição 1
+print(f"Lista após adicionar kiwi na posição 1: {frutas}")
+
+# Removendo elementos
+frutas.remove("maçã") # Remove pelo valor
+print(f"Lista após remover maçã: {frutas}")
+elemento_removido = frutas.pop(0) # Remove pelo índice (0 é o primeiro) e retorna o elemento
+print(f"Lista após remover {elemento_removido} (pelo índice): {frutas}")
+
+# Tamanho da lista
+print(f"Número de frutas na lista: {len(frutas)}")
+
+# Iterando sobre a lista (com loop for)
+print("\nMinhas frutas favoritas:")
+for fruta in frutas:
+    print(f"- {fruta}")
+            </code></pre>
+            <p class="card-text mt-3">Este código demonstra as operações mais comuns com listas, como acesso, alteração, adição e remoção de elementos, além de como percorrer a lista.</p>
+        </div>
+
+        <div class="card p-3 mb-4 text-center">
+            <h5 class="card-title">Resultado da Execução do Código (Listas/Vetores)</h5>
+            <p>A imagem abaixo mostra o que você veria ao executar o código de manipulação de listas no seu terminal:</p>
+            <img src="{{ url_for('static', filename='/imagens/Vetores (Listas) e Matrizes (Listas Aninhadas).IMG.png') }}" class="img-fluid rounded mx-auto d-block" alt="Exemplo de execução de operações com listas">
+            
+        </div>
+    </section>
+
+    <hr>
+
+    <section>
+        <h3>O Conceito: Listas Aninhadas (Matrizes) em Python</h3>
+        <p>Uma matriz (ou array 2D) pode ser representada em Python como uma lista onde cada elemento é, por sua vez, outra lista. Isso cria uma estrutura de linhas e colunas.</p>
+        <p>Exemplo de matriz 2x3 (2 linhas, 3 colunas):</p>
+        <pre><code class="language-python">
+matriz = [
+    [1, 2, 3],  # Linha 0
+    [4, 5, 6]   # Linha 1
+]
+        </code></pre>
+    </section>
+
+    <hr>
+
+    <section>
+        <h3>Aplicação e Exemplo de Código (Matrizes)</h3>
+        <p>Vamos ver como criar e manipular listas aninhadas:</p>
+
+        <div class="card bg-light p-3 mb-4">
+            <h5 class="card-title">Exemplo: Operações Básicas com Listas Aninhadas (Matrizes)</h5>
+            <pre><code class="language-python">
+# Exemplo de Matriz (Lista Aninhada) em Python
+
+# Criando uma matriz 3x3
+matriz = [
+    [10, 20, 30],
+    [40, 50, 60],
+    [70, 80, 90]
+]
+print("Matriz original:")
+for linha in matriz:
+    print(linha)
+
+# Acessando elementos: matriz[linha][coluna]
+print(f"\nElemento na linha 0, coluna 1: {matriz[0][1]}") # Saída: 20
+print(f"Elemento na linha 2, coluna 2: {matriz[2][2]}") # Saída: 90
+
+# Alterando um elemento
+matriz[1][1] = 55
+print("\nMatriz após alterar o elemento central:")
+for linha in matriz:
+    print(linha)
+
+# Iterando sobre a matriz (loops aninhados)
+print("\nPercorrendo a matriz elemento por elemento:")
+for linha in range(len(matriz)):
+    for coluna in range(len(matriz[linha])):
+        print(f"Elemento na posição ({linha}, {coluna}): {matriz[linha][coluna]}")
+            </code></pre>
+            <p class="card-text mt-3">Este código mostra como acessar e alterar elementos de uma matriz, e como usar loops aninhados para percorrer todos os seus elementos.</p>
+        </div>
+
+        <div class="card p-3 mb-4 text-center">
+            <h5 class="card-title">Resultado da Execução do Código (Matrizes)</h5>
+            <p>A imagem abaixo ilustra a saída do código de manipulação de matrizes no terminal:</p>
+            <img src="{{ url_for('static', filename='/imagens/Aplicação e Exemplo de Código (Matrizes).png') }}" class="img-fluid rounded mx-auto d-block" alt="Exemplo de execução de operações com matrizes">
+          
+        </div>
+    </section>
+
+{% endblock %}

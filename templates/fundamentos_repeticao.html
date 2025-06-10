@@ -1,0 +1,127 @@
+{% extends 'base.html' %}
+
+{% block title %}Estruturas de Repetição - Fundamentos de Python{% endblock %}
+
+{% block heading %}Estruturas de Repetição (Loops) em Python{% endblock %}
+
+{% block content %}
+    <p class="lead">As estruturas de repetição, também conhecidas como loops, permitem executar um bloco de código várias vezes. Elas são essenciais para automatizar tarefas que se repetem, tornando seus programas mais eficientes.</p>
+
+    <hr>
+
+    <section>
+        <h3>O Conceito: `for` e `while`</h3>
+        <p>Em Python, as principais estruturas de repetição são <code>for</code> e <code>while</code>.</p>
+        <ul>
+            <li><strong><code>for</code> (para):</strong> Usado para iterar sobre uma sequência (como listas, tuplas, dicionários, strings) ou outros objetos iteráveis. Ideal quando você sabe o número de vezes que a repetição deve ocorrer.</li>
+            <li><strong><code>while</code> (enquanto):</strong> Repete um bloco de código enquanto uma condição específica for verdadeira. Ideal quando você não sabe o número exato de repetições e a execução depende de uma condição.</li>
+        </ul>
+    </section>
+
+    <hr>
+
+    <section>
+        <h3>Aplicação e Exemplo de Código com `for`</h3>
+        <p>O loop <code>for</code> é frequentemente usado para percorrer coleções de itens. Veja um exemplo que imprime cada número de 1 a 5:</p>
+
+        <div class="card bg-light p-3 mb-4">
+            <h5 class="card-title">Exemplo: Loop `for` com `range()`</h5>
+            <pre><code class="language-python">
+# Exemplo de Estrutura de Repetição com 'for'
+
+print("Contando de 1 a 5:")
+for numero in range(1, 6): # range(1, 6) gera números de 1 a 5
+    print(numero)
+
+print("\nIterando sobre uma lista:")
+frutas = ["maçã", "banana", "cereja"]
+for fruta in frutas:
+    print(f"Eu gosto de {fruta}.")
+            </code></pre>
+            <p class="card-text mt-3">Este código usa <code>for</code> para contar até 5 e para exibir cada fruta em uma lista. O <code>range(1, 6)</code> gera uma sequência de 1 a 5.</p>
+        </div>
+
+        <div class="card p-3 mb-4 text-center">
+            <h5 class="card-title">Resultado da Execução do Código (`for`)</h5>
+            <p>A imagem abaixo ilustra a saída do código `for` no terminal:</p>
+            <img src="{{ url_for('static', filename='/imagens/Estruturas de Repetição (Loops).IMG.png') }}" class="img-fluid rounded mx-auto d-block" alt="Exemplo de execução do loop for">
+            
+        </div>
+    </section>
+
+    <hr>
+
+    <section>
+        <h3>Aplicação e Exemplo de Código com `while`</h3>
+        <p>O loop <code>while</code> continua executando enquanto uma condição for verdadeira. É importante ter uma forma de a condição se tornar falsa para evitar loops infinitos.</p>
+
+        <div class="card bg-light p-3 mb-4">
+            <h5 class="card-title">Exemplo: Loop 'while' para Contagem Regressiva</h5>
+            <pre><code class="language-python">
+# Exemplo de Estrutura de Repetição com 'while'
+
+contador = 5
+print("Contagem regressiva:")
+while contador > 0:
+    print(contador)
+    contador -= 1 # Decrementa o contador
+print("Lançar!")
+
+# Exemplo de loop 'while' com entrada do usuário
+print("\nTentativa de login (digite 'sair' para parar):")
+senha_correta = "python123"
+tentativas = 0
+while tentativas < 3:
+    senha_digitada = input("Digite a senha: ")
+    if senha_digitada == senha_correta:
+        print("Login bem-sucedido!")
+        break # Sai do loop se a senha estiver correta
+    elif senha_digitada.lower() == 'sair':
+        print("Saindo do programa.")
+        break
+    else:
+        print("Senha incorreta. Tente novamente.")
+        tentativas += 1
+else: # Este 'else' é executado se o loop 'while' terminar normalmente (sem 'break')
+    print("Número máximo de tentativas excedido.")
+            </code></pre>
+            <p class="card-text mt-3">Neste exemplo, o loop <code>while</code> conta regressivamente. No segundo exemplo, ele continua pedindo uma senha até que seja correta, até que o usuário digite 'sair' ou até 3 tentativas falhas.</p>
+        </div>
+
+        <div class="card p-3 mb-4 text-center">
+            <h5 class="card-title">Resultado da Execução do Código (`while`)</h5>
+            <p>A imagem abaixo mostra o que você veria ao executar o código `while` no seu terminal:</p>
+            <img src="{{ url_for('static', filename='/imagens/loop while.IMG.png') }}" class="img-fluid rounded mx-auto d-block" alt="Exemplo de execução do loop while">
+            <p class="card-text mt-2 text-muted">.</p>
+        </div>
+    </section>
+
+    <hr>
+
+    <section>
+        <h3>Instruções de Controle de Loop ('break','continue')</h3>
+        <ul>
+            <li><strong><code>break</code>:</strong> Termina o loop imediatamente.</li>
+            <li><strong><code>continue</code>:</strong> Pula a iteração atual do loop e continua para a próxima.</li>
+        </ul>
+        <div class="card bg-light p-3">
+            <h5 class="card-title">Exemplo: 'break' e 'continue'</h5>
+            <pre><code class="language-python">
+# Exemplo com 'break'
+print("Exemplo com break:")
+for i in range(1, 10):
+    if i == 5:
+        break # O loop para quando i for 5
+    print(i) # Irá imprimir 1, 2, 3, 4
+
+# Exemplo com 'continue'
+print("\nExemplo com continue (pula o ímpar):")
+for i in range(1, 6):
+    if i % 2 != 0: # Se for ímpar
+        continue # Pula para a próxima iteração
+    print(i) # Irá imprimir 2, 4
+            </code></pre>
+        </div>
+    </section>
+
+{% endblock %}

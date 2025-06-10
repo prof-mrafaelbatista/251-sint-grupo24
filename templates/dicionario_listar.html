@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+
+{% block title %}Dicionário de Termos Python{% endblock %}
+
+{% block heading %}Dicionário de Termos{% endblock %}
+
+{% block content %}
+    <div class="card p-4 shadow-sm" style="background-color: #f8f9fa;">
+        <h2 class="mb-4 text-center" style="color: #4e0540;">Termos e Definições</h2>
+
+        {% if termos %}
+            <div class="list-group">
+                {% for termo_item, definicao_item in termos %} {# <-- ALTERADO AQUI: Desempacota a tupla #}
+                    <div class="list-group-item list-group-item-action mb-3 rounded shadow-sm term-item">
+                        <div class="d-flex w-100 justify-content-between align-items-center"> {# Adicionado align-items-center #}
+                            <h5 class="mb-1" style="color: #800080;">{{ termo_item }}</h5> {# <-- USANDO termo_item #}
+                            <div class="term-actions">
+                                {# Botão Alterar #}
+                                <a href="{{ url_for('dicionario_alterar', termo_chave=termo_item) }}" class="btn btn-sm btn-outline-info me-2">Alterar</a>
+                                {# Formulário Excluir (necessário para método POST) #}
+                                <form action="{{ url_for('dicionario_excluir', termo_chave=termo_item) }}" method="post" style="display:inline;">
+                                    <button type="submit" class="btn btn-sm btn-outline-danger" onclick="return confirm('Tem certeza que deseja excluir o termo \'{{ termo_item }}\'?');">Excluir</button>
+                                </form>
+                            </div>
+                        </div>
+                        <p class="mb-1">{{ definicao_item }}</p> {# <-- USANDO definicao_item #}
+                    </div>
+                {% endfor %}
+            </div>
+        {% else %}
+            <p class="text-center text-muted">Nenhum termo encontrado no dicionário ainda.</p>
+            <p class="text-center">Que tal <a href="{{ url_for('dicionario_adicionar') }}">adicionar um novo termo</a>?</p>
+        {% endif %}
+    </div>
+
+    <style>
+
+        .term-item {
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            padding: 1.25rem;
+        }
+        .term-item h5 {
+            font-weight: bold;
+        }
+        .term-actions .btn {
+            font-size: 0.8rem; 
+            padding: 0.3rem 0.6rem;
+        }
+    </style>
+{% endblock %}

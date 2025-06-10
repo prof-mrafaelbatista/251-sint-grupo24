@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block title %}Alterar Termo - Dicionário{% endblock %}
+
+{% block heading %}Alterar Termo do Dicionário{% endblock %}
+
+{% block content %}
+    <div class="card p-4 shadow-sm">
+        <form method="POST" action="{{ url_for('dicionario_alterar', termo_chave=termo) }}">
+            <div class="mb-3">
+                <label for="novo_termo" class="form-label">Termo (Não pode ser vazio):</label>
+                <input type="text" class="form-control" id="novo_termo" name="novo_termo" value="{{ termo }}" required>
+            </div>
+            <div class="mb-3">
+                <label for="nova_definicao" class="form-label">Definição:</label>
+                <textarea class="form-control" id="nova_definicao" name="nova_definicao" rows="5" required>{{ definicao }}</textarea>
+            </div>
+            <button type="submit" class="btn btn-success me-2">Salvar Alterações</button>
+            <a href="{{ url_for('dicionario_listar') }}" class="btn btn-secondary">Cancelar</a>
+        </form>
+    </div>
+
+{% endblock %}

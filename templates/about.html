@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block title %}Sobre Mim - Meu Projeto Flask{% endblock %}
+
+{% block heading %}Conheça a Desenvolvedora{% endblock %}
+
+{% block content %}
+    <div class="card p-4 shadow-sm text-center" style="background-color: #f0f0f0; border-radius: 15px;">
+        <div class="row align-items-center justify-content-center"> 
+            <div class="col-md-4">
+                
+                <img src="{{ url_for('static', filename='/imagens/minhafoto.jpeg') }}" 
+                     class="rounded-circle mb-3 border border-5" 
+                     style="width: 150px; height: 150px; object-fit: cover; border-color: #800080 !important;" 
+                     alt="Sua Foto de Perfil">
+                
+                <h2 class="text-primary" style="color: #4e0540 !important;" id="typing-name"></h2>
+                <p class="text-secondary" id="typing-role">Estudante de Ciência da Computação | Entusiasta em Programação</p>
+            </div>
+            <div class="col-md-8 text-start"> 
+               <p>Olá! Meu nome é <strong id="dynamic-name">Alyere Targino</strong>. Sou estudante de Ciência da Computação e estou no meu primeiro período, mergulhando com entusiasmo no vasto e empolgante universo da programação.</p>
+<p>Este site, construído com Flask, representa um dos meus primeiros projetos práticos em desenvolvimento web e Python. Cada linha de código aqui é um passo importante na minha jornada de aprendizado, onde transformo a teoria em algo real e funcional.</p>
+<p>Descobrir o potencial da tecnologia para criar soluções é algo que me fascina. A experiência de integrar a API do Gemini, por exemplo, foi uma oportunidade incrível para explorar o poder da inteligência artificial na prática.</p>
+<p>Estou sempre buscando aprender e crescer, pronta para os próximos desafios que o mundo da tecnologia me apresentar!</p>
+                
+                <h3 class="mt-4" style="color: #800080;">Conecte-se Comigo:</h3>
+                <div class="about-buttons d-flex justify-content-start gap-3"> 
+                    <a href="https://github.com/SEU_USUARIO_GITHUB" target="_blank" rel="noopener noreferrer" aria-label="Visitar meu perfil no GitHub" class="btn btn-dark d-flex align-items-center"> 
+                        <i class="fa-brands fa-github fa-lg me-2"></i> GitHub
+                    </a>
+                    <a href="https://linkedin.com/in/SEU_USUARIO_LINKEDIN" target="_blank" rel="noopener noreferrer" aria-label="Conectar-se comigo no LinkedIn" class="btn btn-primary d-flex align-items-center" style="background-color: #0e5f4f; border-color: #004480;">
+                        <i class="fa-brands fa-linkedin fa-lg me-2"></i> LinkedIn
+                    </a>
+                   
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

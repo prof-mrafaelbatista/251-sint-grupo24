@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Python - Meu Projeto Flask{% endblock %}</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OerWEESJj/pHcR5eKbc/tF7xIe+z3Z6eQ/P8" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark custom-navbar">
+            <div class="container-fluid px-4">
+                <a class="navbar-brand" href="/">Projeto de Programação - Python 🐍</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link {% if request.path == '/' %}active{% endif %}" aria-current="page" href="/">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link {% if request.path == '/about' %}active{% endif %}" href="/about">Sobre Mim</a>
+                        </li>
+                       
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle {% if request.path.startswith('/fundamentos') %}active{% endif %}" href="#" id="navbarDropdownFundamentos" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Fundamentos de Python
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdownFundamentos">
+                                <li><a class="dropdown-item" href="{{ url_for('fundamentos_selecao') }}">Estruturas de Seleção</a></li>
+                                <li><a class="dropdown-item" href="{{ url_for('fundamentos_repeticao') }}">Estruturas de Repetição</a></li>
+                                <li><a class="dropdown-item" href="{{ url_for('fundamentos_vetores') }}">Vetores e Matrizes</a></li>
+                                <li><a class="dropdown-item" href="{{ url_for('fundamentos_funcoes') }}">Funções e Procedimentos</a></li>
+                                <li><a class="dropdown-item" href="{{ url_for('fundamentos_excecoes') }}">Tratamento de Exceção</a></li>
+                            </ul>
+                        
+                        <li class="nav-item">
+                       <a class="nav-link {% if request.path == '/gemini_chat' %}active{% endif %}" href="/gemini_chat">Tirar Dúvidas com a IA Gemini</a>
+                                </li>
+                        
+                      
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle {% if request.path.startswith('/dicionario') %}active{% endif %}" href="#" id="navbarDropdownDicionario" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Dicionário
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdownDicionario">
+                                <li><a class="dropdown-item" href="{{ url_for('dicionario_listar') }}">Visualizar Termos</a></li>
+                                <li><a class="dropdown-item" href="{{ url_for('dicionario_adicionar') }}">Adicionar Termo</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <div class="container text-center py-4 bg-light">
+            <h1 class="display-4">{% block heading %}Bem-vindo ao Meu Projeto Flask{% endblock %}</h1>
+        </div>
+    </header>
+
+    <main class="container my-4 custom-main-content">
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                <div class="mt-3">
+                    {% for category, message in messages %}
+                        <div class="alert alert-{{ category }} alert-dismissible fade show" role="alert">
+                            {{ message }}
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+                    {% endfor %}
+                </div>
+            {% endif %}
+        {% endwith %}
+
+        {% block content %}
+        {% endblock %}
+    </main>
+
+    <footer class="bg-dark text-white py-3 text-center mt-4 footer">
+        <p>&copy; 2025 Todos os direitos reservados. Feito por Alyere Targino.</p> 
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>

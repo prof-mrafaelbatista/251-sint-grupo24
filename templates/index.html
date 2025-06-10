@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block title %}Página Inicial - Meu Projeto Flask{% endblock %}
+
+{% block heading %}Sua Jornada na Programação Começa Aqui 🚀{% endblock %} {# Emoji na chamada principal #}
+
+{% block content %}
+    <div class="p-5 mb-4 bg-light rounded-3">
+        <div class="container-fluid py-5">
+            <h2 class="display-5 fw-bold">Desvende os Segredos do Python Comigo! ✨</h2> {# Emoji no título principal #}
+            <p class="col-md-8 fs-4">Olá! Sou uma estudante de Ciência da Computação no primeiro período, apaixonada por desvendar os desafios da lógica e da construção de sistemas. 💻</p> {# Emoji relacionado à programação #}
+            <p class="col-md-8 fs-4">Este é o meu projeto em Flask, um espaço dedicado a explorar e compartilhar os fundamentos essenciais da programação em Python, desde as estruturas básicas até conceitos mais avançados de organização de código e tratamento de dados.</p>
+            <p class="col-md-8 fs-4">Prepare-se para uma jornada de aprendizado prática e envolvente. Sinta-se à vontade para navegar e descobrir as maravilhas da codificação! 💡</p> {# Emoji de ideia/descoberta #}
+            <a href="/about" class="btn btn-primary btn-lg" type="button">Conheça a Desenvolvedora</a>
+            <button id="meuBotaoTeste" class="btn btn-info btn-lg ms-3"></button> 
+        </div>
+    </div>
+
+    <div class="row align-items-md-stretch">
+        <div class="col-md-6">
+            <div class="h-100 p-5 bg-light border rounded-3">
+                <h2>Aprenda Fundamentos de Python 📚</h2> {# Emoji de livro/aprendizado #}
+                <p>Explore os conceitos essenciais da programação Python: estruturas de seleção, repetição, vetores, funções e tratamento de exceções, de forma clara e prática.</p>
+                <a href="/fundamentos/selecao" class="btn btn-outline-secondary" type="button">Saiba Mais</a>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="h-100 p-5 bg-light border rounded-3">
+                <h2>Tire Suas Dúvidas com IA 🤖</h2> {# Emoji de robô/IA #}
+                <p>Curiosa(o) sobre Python e seus desafios? Pergunte sobre programação e obtenha respostas rápidas e inteligentes, facilitando seu aprendizado e tirando suas dúvidas a qualquer momento.</p>
+                <a href="{{ url_for('gemini_chat') }}" class="btn btn-outline-secondary" type="button">Conversar com a IA</a>
+            </div>
+        </div>
+    </div>
+{% endblock %}

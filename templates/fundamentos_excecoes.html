@@ -1,0 +1,106 @@
+{% extends 'base.html' %}
+
+{% block title %}Tratamento de Exceção - Fundamentos de Python{% endblock %}
+
+{% block heading %}Tratamento de Exceção em Python{% endblock %}
+
+{% block content %}
+    <p class="lead">O tratamento de exceções é uma técnica fundamental em programação para lidar com erros que podem ocorrer durante a execução de um programa. Em vez de o programa "travar" ou encerrar abruptamente, você pode "capturar" esses erros e tomar ações corretivas.</p>
+
+    <hr>
+
+    <section>
+        <h3>O Conceito: 'try', 'except','else', 'finally'</h3>
+        <p>Em Python, o tratamento de exceções é feito usando as palavras-chave <code>try</code>, <code>except</code>, <code>else</code> e <code>finally</code>:</p>
+        <ul>
+            <li><strong><code>try</code> (tente):</strong> Contém o código que pode gerar uma exceção.</li>
+            <li><strong><code>except</code> (exceto):</strong> É executado se uma exceção ocorrer no bloco <code>try</code>. Você pode especificar o tipo de exceção a ser capturada.</li>
+            <li><strong><code>else</code> (senão):</strong> (Opcional) É executado se "nenhuma" exceção ocorrer no bloco <code>try</code>.</li>
+            <li><strong><code>finally</code> (finalmente):</strong> (Opcional) É "sempre" executado, ocorrendo uma exceção ou não. É útil para código de limpeza (como fechar arquivos).</li>
+        </ul>
+    </section>
+
+    <hr>
+
+    <section>
+        <h3>Aplicação e Exemplo de Código</h3>
+        <p>Vamos ver um exemplo prático de como evitar que seu programa trave ao tentar dividir por zero, um erro comum conhecido como <code>ZeroDivisionError</code>.</p>
+
+        <div class="card bg-light p-3 mb-4">
+            <h5 class="card-title">Exemplo: Capturando 'ZeroDivisionError'</h5>
+            <pre><code class="language-python">
+# Exemplo de Tratamento de Exceção
+
+def dividir_numeros(dividendo, divisor):
+    """
+    Esta função tenta dividir dois números.
+    Lida com ZeroDivisionError e ValueError (se entrada não for número).
+    """
+    try:
+        # Tenta executar esta parte do código
+        resultado = dividendo / divisor
+    except ZeroDivisionError:
+        # Se ocorrer uma divisão por zero, este bloco é executado
+        print("Erro: Não é possível dividir por zero!")
+        return None # Retorna None para indicar que a operação falhou
+    except ValueError:
+        # Se ocorrer um erro de valor (ex: entrada não numérica), este bloco é executado
+        print("Erro: Por favor, insira apenas números.")
+        return None
+    except Exception as e: # Captura qualquer outra exceção genérica
+        print(f"Ocorreu um erro inesperado: {e}")
+        return None
+    else:
+        # Este bloco é executado se NENHUMA exceção ocorrer no 'try'
+        print("Operação de divisão realizada com sucesso!")
+        return resultado
+    finally:
+        # Este bloco sempre será executado, independentemente de erro ou sucesso
+        print("Fim da tentativa de divisão.")
+
+# Testando a função
+print("--- Teste 1: Divisão normal ---")
+resultado1 = dividir_numeros(10, 2)
+if resultado1 is not None:
+    print(f"Resultado: {resultado1}\n") # Saída: Resultado: 5.0
+
+print("--- Teste 2: Divisão por zero ---")
+resultado2 = dividir_numeros(10, 0) # Isso causará um ZeroDivisionError
+if resultado2 is not None:
+    print(f"Resultado: {resultado2}\n") # Não será impresso, pois retorna None
+
+print("--- Teste 3: Entrada não numérica ---")
+resultado3 = dividir_numeros("dez", 2) # Isso causará um ValueError
+if resultado3 is not None:
+    print(f"Resultado: {resultado3}\n") # Não será impresso, pois retorna None
+            </code></pre>
+            <p class="card-text mt-3">Neste exemplo, a função <code>dividir_numeros</code> usa <code>try-except</code> para capturar erros específicos. O <code>else</code> é executado apenas se não houver erro, e o <code>finally</code> sempre é executado.</p>
+        </div>
+
+        <div class="card p-3 mb-4 text-center">
+            <h5 class="card-title">Resultado da Execução do Código (Exemplo)</h5>
+            <p>A imagem abaixo mostra o que você veria ao executar o código acima no seu terminal, testando as diferentes situações:</p>
+            <img src="{{ url_for('static', filename='/imagens/Conceito  try, except, else, finally.img.png') }}" class="img-fluid rounded mx-auto d-block" alt="Exemplo de execução do código de tratamento de exceção">
+           
+        </div>
+    </section>
+
+    <hr>
+
+    <section>
+        <h3>Tipos Comuns de Exceções</h3>
+        <p>Python possui muitas exceções built-in (pré-definidas) para diferentes tipos de erros:</p>
+        <ul>
+            <li><code>ValueError</code>: Ocorre quando uma função recebe um argumento do tipo correto, mas com um valor inadequado.</li>
+            <li><code>TypeError</code>: Ocorre quando uma operação ou função é aplicada a um objeto de tipo inadequado.</li>
+            <li><code>NameError</code>: Ocorre quando você tenta usar uma variável ou função que não foi definida.</li>
+            <li><code>IndexError</code>: Ocorre quando você tenta acessar um índice inválido em uma sequência (como uma lista).</li>
+            <li><code>KeyError</code>: Ocorre quando você tenta acessar uma chave que não existe em um dicionário.</li>
+            <li><code>FileNotFoundError</code>: Ocorre ao tentar abrir um arquivo que não existe.</li>
+            <li><code>IOError</code>: Ocorre para outras operações de entrada/saída que falham.</li>
+            <li><code>ZeroDivisionError</code>: Ocorre ao tentar dividir um número por zero.</li>
+        </ul>
+        <p>É uma boa prática ser o mais específico possível ao capturar exceções, em vez de usar um <code>except</code> genérico (<code>except Exception as e:</code>), a menos que você queira capturar qualquer erro inesperado no final.</p>
+    </section>
+
+{% endblock %}

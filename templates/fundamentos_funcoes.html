@@ -1,0 +1,102 @@
+{% extends 'base.html' %}
+
+{% block title %}Funções e Procedimentos - Fundamentos de Python{% endblock %}
+
+{% block heading %}Funções e Procedimentos em Python{% endblock %}
+
+{% block content %}
+    <p class="lead">Funções e procedimentos (em Python, ambos são chamados de funções) são blocos de código organizados e reutilizáveis que realizam uma tarefa específica. Eles ajudam a modularizar seu código, torná-lo mais legível, reutilizável e fácil de manter.</p>
+
+    <hr>
+
+    <section>
+        <h3>O Conceito: `def` (Definindo Funções)</h3>
+        <p>Em Python, você define uma função usando a palavra-chave <code>def</code>, seguida do nome da função, parênteses <code>()</code> (que podem conter parâmetros) e dois pontos <code>:</code>. O corpo da função é indentado.</p>
+        <ul>
+            <li><strong>Função:</strong> Um bloco de código que pode receber entradas (argumentos), processá-las e retornar um valor como saída.</li>
+            <li><strong>Procedimento:</strong> É uma função que executa uma tarefa, mas não retorna explicitamente um valor (em Python, ela implicitamente retorna <code>None</code>).</li>
+        </ul>
+    </section>
+
+    <hr>
+
+    <section>
+        <h3>Aplicação e Exemplo de Código (Funções Sem Retorno - Procedimentos)</h3>
+        <p>Vamos criar uma função simples que apenas imprime uma mensagem:</p>
+
+        <div class="card bg-light p-3 mb-4">
+            <h5 class="card-title">Exemplo: Função sem Retorno (Procedimento)</h5>
+            <pre><code class="language-python">
+# Exemplo de Função sem Retorno (Procedimento)
+
+def saudacao(nome):
+    """
+    Esta função imprime uma mensagem de saudação.
+    Não retorna nenhum valor.
+    """
+    print(f"Olá, {nome}! Bem-vindo(a) ao mundo Python.")
+
+# Chamando a função
+saudacao("Alice")
+saudacao("Bob")
+            </code></pre>
+            <p class="card-text mt-3">Neste exemplo, a função <code>saudacao</code> recebe um nome e imprime uma saudação personalizada. Ela executa uma ação, mas não devolve um resultado.</p>
+        </div>
+
+        <div class="card p-3 mb-4 text-center">
+            <h5 class="card-title">Resultado da Execução do Código (Procedimento)</h5>
+            <p>A imagem abaixo mostra a saída do código do procedimento no terminal:</p>
+            <img src="{{ url_for('static', filename='/imagens/Função sem Retorno (Procedimento).png') }}" class="img-fluid rounded mx-auto d-block" alt="Exemplo de execução de função sem retorno">
+            
+        </div>
+    </section>
+
+    <hr>
+
+    <section>
+        <h3>Aplicação e Exemplo de Código (Funções com Retorno)</h3>
+        <p>Funções com retorno são úteis quando você precisa que a função calcule algo e "devolva" esse valor para ser usado em outra parte do seu programa.</p>
+
+        <div class="card bg-light p-3 mb-4">
+            <h5 class="card-title">Exemplo: Função com Retorno de Valor</h5>
+            <pre><code class="language-python">
+# Exemplo de Função com Retorno
+
+def soma(a, b):
+    """
+    Esta função recebe dois números e retorna a soma deles.
+    """
+    resultado = a + b
+    return resultado # A palavra-chave 'return' envia o valor de volta
+
+# Chamando a função e armazenando o resultado
+numero1 = 10
+numero2 = 5
+total = soma(numero1, numero2)
+print(f"A soma de {numero1} e {numero2} é: {total}")
+
+# A função também pode ser chamada diretamente dentro de um print
+print(f"A soma de 7 e 3 é: {soma(7, 3)}")
+            </code></pre>
+            <p class="card-text mt-3">Aqui, a função <code>soma</code> calcula a soma de dois números e retorna esse valor, que é então armazenado em uma variável ou usado diretamente.</p>
+        </div>
+
+        <div class="card p-3 mb-4 text-center">
+            <h5 class="card-title">Resultado da Execução do Código (Função com Retorno)</h5>
+            <p>A imagem abaixo ilustra a saída do código da função com retorno no terminal:</p>
+            <img src="{{ url_for('static', filename='/imagens/Função com Retorno de Valor.png') }}" class="img-fluid rounded mx-auto d-block" alt="Exemplo de execução de função com retorno">
+           
+        </div>
+    </section>
+
+    <hr>
+
+    <section>
+        <h3>Parâmetros e Argumentos</h3>
+        <ul>
+            <li><strong>Parâmetros:</strong> São os nomes das variáveis listados dentro dos parênteses na definição da função (ex: <code>nome</code> em <code>def saudacao(nome):</code>).</li>
+            <li><strong>Argumentos:</strong> São os valores reais que você passa para a função quando a chama (ex: <code>"Alice"</code> em <code>saudacao("Alice")</code>).</li>
+        </ul>
+    </section>
+
+{% endblock %}
