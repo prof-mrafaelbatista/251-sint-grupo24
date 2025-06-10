@@ -1,9 +1,5 @@
 # 251-sint-grupo24
 
-Com certeza! Com base no seu projeto original e usando a estrutura do "Tech-learn" como modelo, aqui está uma versão refeita do seu README.md.
-
-Ele foi adaptado para um projeto individual e inclui as seções detalhadas que você gostou, como tecnologias, estrutura de pastas e instruções claras.
-
 Projeto de Aprendizado em Python 🐍
 Um portal web desenvolvido para ensinar e explorar os fundamentos da programação Python de forma interativa, integrando um dicionário de termos e um assistente de IA para tirar dúvidas.
 
